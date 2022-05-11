@@ -2,18 +2,17 @@ const express = require('express')
 const req = require('express/lib/request')
 const res = require('express/lib/response')
 const router = express.Router()
-const data = {}
-data.states = require('../../data/states.json')
+const statesController = require('../../controllers/statesController')
+
 
 router.route('/')
-    .get((req, res) => {
-        res.json(data.states)
-    })
+    .get(statesController.getAllStates)
+    .post(statesController.createNewFacts)
+    .put(statesController.updateState)
+    .delete(statesController.deleteFacts)
 
 router.route('/:state')
-    .get((req, res) => {
-        res.json({ "state": req.params.state })
-    })
+    .get(statesController.getState)
 
 
 
