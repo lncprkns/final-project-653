@@ -7,6 +7,7 @@ const PORT = process.env.PORT || 3500;
 
 // CORS
 app.use(cors())
+app.options('*', cors())
 
 //handles form data
 app.use(express.urlencoded({ extended: false }))
