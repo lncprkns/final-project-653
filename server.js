@@ -17,9 +17,10 @@ app.use(express.json())
 // handles static files
 app.use(express.static(path.join(__dirname, '/public')))
 
-app.get('^/$|/index(.html)?', (req,res) => {
-    res.sendFile(path.join(__dirname, 'public', 'views', 'index.html'))
-})
+
+// routes
+app.use('/', require('./routes/root'))
+app.use('/states', require('./routes/api/states'))
 
 // catch all
 app.get('/*', (req, res) => {
@@ -31,14 +32,7 @@ app.get('/*', (req, res) => {
     } else {
         res.type('txt').sendFile(path.join(__dirname, 'public', 'views', '404.html'))  
     } 
-     
 })
-
-
-
-
-
-// Route Handlers
 
 app.use(errorHandler)
 
