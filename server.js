@@ -22,12 +22,12 @@ app.get('^/$|/index(.html)?', (req,res) => {
 })
 
 // catch all
-app.all('*', (req, res) => {
+app.get('/*', (req, res) => {
     res.status(404)
     if (req.accepts('html')) {
         res.sendFile(path.join(__dirname, 'public', 'views', '404.html'))  
     } else if (req.accepts('json')) {
-        res.json({"error": "404 Not Found"})  
+        res.json({"error": "404 Not Found"})
     } else {
         res.type('txt').sendFile(path.join(__dirname, 'public', 'views', '404.html'))  
     } 
