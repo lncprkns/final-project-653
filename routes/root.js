@@ -6,4 +6,4 @@ router.get('^/$|/index(.html)?', (req,res) => {
     res.sendFile(path.join(__dirname, '..', 'public', 'views', 'index.html'))
 })
 
-module.exports = router
+module.exports = router;

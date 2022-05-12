@@ -1,1 +1,1 @@
-REST API using Express and JavaScript. Not so much with Mongo other than establishing a connection.
+REST API using Express and JavaScript. Well, not so much with Mongo other than establishing a connection.

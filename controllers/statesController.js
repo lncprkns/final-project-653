@@ -54,4 +54,4 @@ module.exports = {
     updateState,
     deleteFacts,
     getState
-}
+};
